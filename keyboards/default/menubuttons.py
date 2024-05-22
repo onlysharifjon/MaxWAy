@@ -26,7 +26,7 @@ start_menu = ReplyKeyboardMarkup(
     resize_keyboard=True
 )
 
-buyurtma_berish= ReplyKeyboardMarkup(
+buyurtma_berish = ReplyKeyboardMarkup(
     keyboard=[
         [
             KeyboardButton("🚖 Yetkazib berish"),
@@ -48,8 +48,7 @@ orqaga = ReplyKeyboardMarkup(
     resize_keyboard=True
 )
 
-
-filiallar= ReplyKeyboardMarkup(
+filiallar = ReplyKeyboardMarkup(
     keyboard=[
 
         [
@@ -80,11 +79,9 @@ filiallar= ReplyKeyboardMarkup(
             KeyboardButton('MAX WAY MAGIC PARKENT')
         ],
 
-
     ],
     resize_keyboard=True
 )
-
 
 buyurtmalarim = ReplyKeyboardMarkup(
     keyboard=[
@@ -104,7 +101,6 @@ izoh = ReplyKeyboardMarkup(
     resize_keyboard=True
 )
 
-
 joylashuv = ReplyKeyboardMarkup(
     keyboard=[
         [
@@ -118,8 +114,7 @@ joylashuv = ReplyKeyboardMarkup(
     resize_keyboard=True
 )
 
-
-locatsiya_ol= ReplyKeyboardMarkup(
+locatsiya_ol = ReplyKeyboardMarkup(
     keyboard=[
         [
             KeyboardButton("Locatsiyani qayta yuborish"),
@@ -135,8 +130,21 @@ locatsiya_ol= ReplyKeyboardMarkup(
     resize_keyboard=True
 )
 
+sozlamalar = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton("Tilni o'zgartirish"),
+            KeyboardButton("Tug'ilgan kunni qo'shish")
+        ],
+        [
+            KeyboardButton("Telefon raqamni o'zgartirish"),
+            KeyboardButton("⬅️ Orqaga")
+        ]
+    ],
+    resize_keyboard=True
+)
 
-menu= ReplyKeyboardMarkup(
+menu = ReplyKeyboardMarkup(
     keyboard=[
 
         [
@@ -180,6 +188,310 @@ menu= ReplyKeyboardMarkup(
             KeyboardButton(text='🥫Souslar')
         ],
 
+    ],
+    resize_keyboard=True
+)
+
+yengilik = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton(text='⬅️ Orqaga'),
+            KeyboardButton(text='📥 Savat')
+        ],
+
+        [
+            KeyboardButton("Trendvich"),
+            KeyboardButton("Maxi BOX Trendvich")
+        ],
+
+    ],
+    resize_keyboard=True
+)
+
+Maxi_box = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton(text='⬅️ Orqaga'),
+            KeyboardButton(text='📥 Savat')
+        ],
+
+        [
+            KeyboardButton("Maxi BOX Traditsiya"),
+            KeyboardButton("Maxi BOX Popular")
+        ],
+
+        [
+            KeyboardButton("Maxi BOX Retro"),
+            KeyboardButton("Max BOX German")
+        ],
+
+        [
+            KeyboardButton("Maxi BOX Trend"),
+            KeyboardButton("Mini BOX")
+        ],
+
+        [
+            KeyboardButton("Maxi BOX Trendvich"),
+        ],
+
+    ],
+    resize_keyboard=True
+)
+
+sendvich = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton(text='⬅️ Orqaga'),
+            KeyboardButton(text='📥 Savat')
+        ],
+
+        [
+            KeyboardButton("Klab sendvich"),
+            KeyboardButton("Sendvich Original")
+        ],
+
+        [
+            KeyboardButton("Trendvich"),
+        ],
+
+    ],
+    resize_keyboard=True
+)
+
+lavash = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton(text='⬅️ Orqaga'),
+            KeyboardButton(text='📥 Savat')
+        ],
+
+        [
+            KeyboardButton("Lavash standart klassik"),
+            KeyboardButton("Lavash standart pishloqli")
+        ],
+
+        [
+            KeyboardButton("Lavash standart achchiq"),
+            KeyboardButton("Lavash mini klassik")
+        ],
+
+        [
+            KeyboardButton("Lavash mini pishloqli"),
+        ],
+
+    ],
+    resize_keyboard=True
+)
+
+shaurma = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton(text='⬅️ Orqaga'),
+            KeyboardButton(text='📥 Savat')
+        ],
+
+        [
+            KeyboardButton("German Donar"),
+            KeyboardButton("Shaurma")
+        ],
+        [
+            KeyboardButton("Panini classiс"),
+        ],
+
+    ],
+    resize_keyboard=True
+)
+
+burger = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton(text='⬅️ Orqaga'),
+            KeyboardButton(text='📥 Savat')
+        ],
+
+        [
+            KeyboardButton("Gamburger"),
+            KeyboardButton("Chizburger")
+        ],
+        [
+            KeyboardButton("Bigburger"),
+        ],
+
+    ],
+    resize_keyboard=True
+)
+
+donar_kebab = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton(text='⬅️ Orqaga'),
+            KeyboardButton(text='📥 Savat')
+        ],
+
+        [
+            KeyboardButton("Donar kebab"),
+            KeyboardButton("Donar Box")
+        ],
+        [
+            KeyboardButton("Non"),
+        ],
+
+    ],
+    resize_keyboard=True
+)
+
+hot_dog = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton(text='⬅️ Orqaga'),
+            KeyboardButton(text='📥 Savat')
+        ],
+
+        [
+            KeyboardButton("Hot Dog"),
+            KeyboardButton("Chiz dog")
+        ],
+        [
+            KeyboardButton("Longer"),
+        ],
+
+    ],
+    resize_keyboard=True
+)
+
+gazak = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton(text='⬅️ Orqaga'),
+            KeyboardButton(text='📥 Savat')
+        ],
+
+        [
+            KeyboardButton("Fri kartoshkasi"),
+            KeyboardButton("BOX")
+        ],
+
+        [
+            KeyboardButton("Strips"),
+            KeyboardButton("Po derevenski")
+        ],
+        [
+            KeyboardButton("Naggets"),
+        ],
+
+    ],
+    resize_keyboard=True
+)
+
+tamaddi = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton(text='⬅️ Orqaga'),
+            KeyboardButton(text='📥 Savat')
+        ],
+
+        [
+            KeyboardButton("Guruch"),
+            KeyboardButton("Salat")
+        ],
+
+    ],
+    resize_keyboard=True
+)
+
+desert = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton(text='⬅️ Orqaga'),
+            KeyboardButton(text='📥 Savat')
+        ],
+
+        [
+            KeyboardButton("Tiramisu"),
+            KeyboardButton("Brauni")
+        ],
+
+        [
+            KeyboardButton("San-sebastian"),
+            KeyboardButton("Yo'ng'oqli donat")
+        ],
+        [
+            KeyboardButton("Karamel donat"),
+            KeyboardButton("Qulupnayli donat")
+        ],
+
+    ],
+    resize_keyboard=True
+)
+
+ichimliklar = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton(text='⬅️ Orqaga'),
+            KeyboardButton(text='📥 Savat')
+        ],
+
+        [
+            KeyboardButton("Moxito"),
+            KeyboardButton("Ice Tea")
+        ],
+
+        [
+            KeyboardButton("Coca Cola"),
+            KeyboardButton("Coca Cola (quyma)")
+        ],
+        [
+            KeyboardButton("Fanta"),
+            KeyboardButton("Sharbat Dena")
+        ],
+
+        [
+            KeyboardButton("Fuse Tea"),
+            KeyboardButton("Bonaqua")
+        ],
+
+        [
+            KeyboardButton("Bir martali stakan"),
+            KeyboardButton("Qora choy")
+        ],
+
+        [
+            KeyboardButton("Ko'k choy"),
+            KeyboardButton("Limonli choy")
+        ],
+
+        [
+            KeyboardButton("Amerikano"),
+            KeyboardButton("Kopuchino")
+        ],
+
+        [
+            KeyboardButton("Latte"),
+        ],
+
+    ],
+    resize_keyboard=True
+)
+
+sous = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton(text='⬅️ Orqaga'),
+            KeyboardButton(text='📥 Savat')
+        ],
+
+        [
+            KeyboardButton("Ketchup"),
+            KeyboardButton("Pishloqli sous")
+        ],
+
+        [
+            KeyboardButton("Sarimsoqli sous"),
+            KeyboardButton("Xalapeno")
+        ],
+        [
+            KeyboardButton("Shirin va nordon sous")
+        ]
 
     ],
     resize_keyboard=True
