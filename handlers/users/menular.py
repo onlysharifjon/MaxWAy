@@ -106,7 +106,7 @@ async def maxi_box(message: types.Message):
     await message.answer("""🍟🍔🥤BARAKALI Maxi BOX
     
   Mahsulotni tanlang:""", reply_markup=Maxi_box)
-    print(True)
+
 
 
 @dp.message_handler(text="🥪Klab-Sendvich")
