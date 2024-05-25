@@ -11,13 +11,40 @@ son = {
 kartoshka-fri :
   - kichik kartoshka-fri      0 x 1 = 0  
 """,
-    'sarimsoq_caption':"""""",
+    'sarimsoq_caption': """""",
 }
 fri_narx = {}
 
 ketchup = {'user_id': True}
 pishloqli_sous = {'user_id': True}
 sarimsoqli_sous = {'user_id': True}
+
+
+def sous_checker(user_id):
+    if user_id in sarimsoqli_sous.keys():
+        if '✅' in sarimsoqli_sous[user_id]:
+            return """
+siz tanlagan sous :
+- sarimsoqli sous      0 x 1 = 0  
+    """
+        else:
+            return ''
+    if user_id in pishloqli_sous.keys():
+        if '✅' in pishloqli_sous[user_id]:
+            return """
+siz tanlagan sous :
+- pishloqli sous      0 x 1 = 0  
+    """
+        else:
+            return ''
+    if user_id in ketchup.keys():
+        if '✅' in ketchup[user_id]:
+            return """
+siz tanlagan sous :
+- ketchup       0 x 1 = 0
+    """
+        else:
+            return ''
 
 
 @dp.message_handler(text="Maxi BOX Traditsiya")
@@ -37,13 +64,6 @@ Umumiy: 45 000 UZS""", reply_markup=Maxi_BOX_Traditsiya)
 
 @dp.callback_query_handler(text='plus')
 async def plusmaxibox(call: types.CallbackQuery):
-    # if call.message.chat.id not in son.keys():
-    #     #     son[call.message.chat.id] = "kichik kartoshka-fri"
-    #     # else:
-    #     #     if '✅' not in son[call.message.chat.id]:
-    #     #         son[call.message.chat.id] = "✅kichik kartoshka-fri"
-    #     #     else:
-    #     #         son[call.message.chat.id] = "✅kichik kartoshka-fri"
     if call.message.chat.id not in son.keys():
         son[call.message.chat.id] = "kichik kartoshka-fri"
     else:
@@ -52,9 +72,17 @@ async def plusmaxibox(call: types.CallbackQuery):
         else:
             son[call.message.chat.id] = "kichik kartoshka-fri"
 
-
     print(son)
     son['count'] += 1
+
+    if call.message.chat.id in sarimsoqli_sous:
+        if 'sarimsoqli sous' in sarimsoqli_sous[call.message.chat.id]:
+            button_text = sarimsoqli_sous[call.message.chat.id]
+        else:
+            button_text = "sarimsoqli_sous"
+    else:
+        button_text = "sarimsoqli_sous"
+
     Maxi_BOX_Traditsiya = InlineKeyboardMarkup(
         inline_keyboard=[
             [
@@ -72,7 +100,7 @@ async def plusmaxibox(call: types.CallbackQuery):
                 InlineKeyboardButton(text="⬇️ Siz tanlagan sous ⬇️", callback_data="0")
             ],
             [
-                InlineKeyboardButton(text="sarimsoqli sous", callback_data="sarimsoqli_sous"),
+                InlineKeyboardButton(text=f'{button_text}', callback_data="sarimsoqli_sous"),
                 InlineKeyboardButton(text="Pishloqli sous", callback_data="pishloqli_sous"),
                 InlineKeyboardButton(text="Ketchup", callback_data="ketchup")
             ],
@@ -93,14 +121,13 @@ async def plusmaxibox(call: types.CallbackQuery):
     else:
         a = fri_narx[call.message.chat.id]
 
-
     summa = 45000 * son['count']
     new_caption = f"""Maxi BOX Traditsiya
 Original sendvich, kartoshka fri, 0.4L coca cola, tanlash uchun sous
 
 Maxi BOX Traditsiya 45 000 x {son['count']} = {summa}
 {a}
-{son['sarimsoq_caption']}
+{sous_checker(call.message.chat.id)}
 Umumiy: {summa} UZS"""
     await call.message.edit_media(
         media=types.InputMediaPhoto(open('images/MaxiBOXTraditsiya.png', 'rb'), chat_id=call.message.chat.id,
@@ -115,6 +142,14 @@ async def minusmaxibox(call: types.CallbackQuery):
     try:
         if son['count'] > 1:
             son['count'] -= 1
+
+            if call.message.chat.id in sarimsoqli_sous:
+                if 'sarimsoqli sous' in sarimsoqli_sous[call.message.chat.id]:
+                    button_text = sarimsoqli_sous[call.message.chat.id]
+                else:
+                    button_text = "sarimsoqli_sous"
+            else:
+                button_text = "sarimsoqli_sous"
 
             Maxi_BOX_Traditsiya = InlineKeyboardMarkup(
                 inline_keyboard=[
@@ -133,7 +168,7 @@ async def minusmaxibox(call: types.CallbackQuery):
                         InlineKeyboardButton(text="⬇️ Siz tanlagan sous ⬇️", callback_data="0")
                     ],
                     [
-                        InlineKeyboardButton(text="sarimsoqli sous", callback_data="sarimsoqli_sous"),
+                        InlineKeyboardButton(text=f"""{button_text}""", callback_data="sarimsoqli_sous"),
                         InlineKeyboardButton(text="Pishloqli sous", callback_data="pishloqli_sous"),
                         InlineKeyboardButton(text="Ketchup", callback_data="ketchup")
                     ],
@@ -162,7 +197,7 @@ Original sendvich, kartoshka fri, 0.4L coca cola, tanlash uchun sous
 
 Maxi BOX Traditsiya 45 000 x {son['count']} = {summa}
 {a}
-{son['sarimsoq_caption']}
+{sous_checker(call.message.chat.id)}
 Umumiy: {summa} UZS"""
 
             await call.message.edit_media(
@@ -199,6 +234,14 @@ kartoshka-fri :
     else:
         son[call.message.chat.id] = "✅kichik kartoshka-fri"
 
+    if call.message.chat.id in sarimsoqli_sous:
+        if 'sarimsoqli sous' in sarimsoqli_sous[call.message.chat.id]:
+            button_text = sarimsoqli_sous[call.message.chat.id]
+        else:
+            button_text = "sarimsoqli_sous"
+    else:
+        button_text = "sarimsoqli_sous"
+
     update_button = InlineKeyboardMarkup(
         inline_keyboard=[
             [
@@ -216,7 +259,7 @@ kartoshka-fri :
                 InlineKeyboardButton(text="⬇️siz tanlagan sous⬇️", callback_data="0")
             ],
             [
-                InlineKeyboardButton(text="sarimsoqli sous", callback_data="sarimsoqli_sous"),
+                InlineKeyboardButton(text=f"""{button_text}""", callback_data="sarimsoqli_sous"),
                 InlineKeyboardButton(text="pishloqli sous", callback_data="pishloqli_sous"),
                 InlineKeyboardButton(text="ketchup", callback_data="ketchup")
             ],
@@ -244,14 +287,14 @@ kartoshka-fri :
     else:
         check = ''
 
+    new_caption = f"""
+Maxi BOX Traditsiya
+Original sendvich, kartoshka fri, 0.4L coca cola, tanlash uchun sous
 
-    new_caption = f"""Maxi BOX Traditsiya
-    Original sendvich, kartoshka fri, 0.4L coca cola, tanlash uchun sous
-
-    Maxi BOX Traditsiya 45 000 x {son['count']} = {summa}
-    {check}
-    {son['sarimsoq_caption']}
-    Umumiy: {summa} UZS"""
+Maxi BOX Traditsiya 45 000 x {son['count']} = {summa}
+{check}
+{sous_checker(call.message.chat.id)}
+Umumiy: {summa} UZS"""
     await call.message.edit_media(
         media=types.InputMediaPhoto(open('images/MaxiBOXTraditsiya.png', 'rb'), caption=new_caption),
         reply_markup=update_button
@@ -309,18 +352,16 @@ async def sous1(call: types.CallbackQuery):
 
         ]
     )
+
     summa = 45000 * son['count']
-    son['sarimsoq_caption'] = """
-    siz tanlagan sous :
-  - sarimsoqli sous      0 x 1 = 0  
-        """
+
     new_caption = f"""Maxi BOX Traditsiya
         Original sendvich, kartoshka fri, 0.4L coca cola, tanlash uchun sous
 
         Maxi BOX Traditsiya 45 000 x {son['count']} = {summa}
         {check}
 
-        {son['sarimsoq_caption']}
+        {sous_checker(call.message.chat.id)}
         Umumiy: {summa} UZS"""
     await call.message.edit_media(
         media=types.InputMediaPhoto(open('images/MaxiBOXTraditsiya.png', 'rb'), caption=new_caption),
@@ -330,3 +371,79 @@ async def sous1(call: types.CallbackQuery):
     )
 
 
+@dp.callback_query_handler(text='pishloqli_sous')
+async def sous1(call: types.CallbackQuery):
+    global check
+
+    sarimsoqli_sous[call.message.chat.id] = "sarimsoqli sous"
+    ketchup[call.message.chat.id] = 'ketchup'
+
+
+
+    if call.message.chat.id in son.keys():
+
+        if '✅' not in pishloqli_sous[call.message.chat.id]:
+            pishloqli_sous[call.message.chat.id] = "✅pishloqli sous"
+        else:
+            pishloqli_sous[call.message.chat.id] = "pishloqli sous"
+
+    else:
+        pishloqli_sous[call.message.chat.id] = "✅pishloqli sous"
+
+
+
+
+    update_button = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [
+                InlineKeyboardButton(text='-', callback_data="minus"),
+                InlineKeyboardButton(text=str(son['count']), callback_data='0'),
+                InlineKeyboardButton(text='+', callback_data="plus")
+            ],
+            [
+                InlineKeyboardButton(text="⬇️ kartoshka-fri ⬇️", callback_data="0")
+            ],
+            [
+                InlineKeyboardButton(text=son[call.message.chat.id], callback_data="kichik_kartoshka_fri")
+            ],
+            [
+                InlineKeyboardButton(text="⬇️siz tanlagan sous⬇️", callback_data="0")
+            ],
+            [
+                InlineKeyboardButton(text=f"{sarimsoqli_sous[call.message.chat.id]}", callback_data="sarimsoqli_sous"),
+                InlineKeyboardButton(text=f"{pishloqli_sous[call.message.chat.id]}", callback_data="pishloqli_sous"),
+                InlineKeyboardButton(text=f"ketchup", callback_data="ketchup")
+            ],
+
+            [
+                InlineKeyboardButton(text="⬇️ichimlik⬇️", callback_data="0")
+            ],
+
+            [
+                InlineKeyboardButton(text="quyma cola", callback_data="quyma_cola"),
+                InlineKeyboardButton(text="limonli choy", callback_data="limonli_choy")
+            ],
+
+            [
+                InlineKeyboardButton(text="📥Savatga qo'shish", callback_data="save")
+            ],
+
+        ]
+    )
+
+    summa = 45000 * son['count']
+
+    new_caption = f"""Maxi BOX Traditsiya
+        Original sendvich, kartoshka fri, 0.4L coca cola, tanlash uchun sous
+
+        Maxi BOX Traditsiya 45 000 x {son['count']} = {summa}
+        {check}
+
+        {sous_checker(call.message.chat.id)}
+        Umumiy: {summa} UZS"""
+    await call.message.edit_media(
+        media=types.InputMediaPhoto(open('images/MaxiBOXTraditsiya.png', 'rb'), caption=new_caption),
+        reply_markup=update_button,
+        # message_id=call.message.message_id,
+        # chat_id=call.message.chat.id
+    )
