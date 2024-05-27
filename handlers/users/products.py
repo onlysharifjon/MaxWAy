@@ -47,6 +47,8 @@ siz tanlagan sous :
             return ''
 
 
+
+
 @dp.message_handler(text="Maxi BOX Traditsiya")
 async def maxi_box_traditsiya(message: types.Message):
     ketchup[message.from_user.id] = ''
