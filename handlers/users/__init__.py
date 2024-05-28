@@ -3,3 +3,4 @@ from . import help
 from . import echo
 from . import start
 from . import products
+from . import product2
