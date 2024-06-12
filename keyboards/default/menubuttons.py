@@ -295,7 +295,7 @@ shaurma = ReplyKeyboardMarkup(
             KeyboardButton("Shaurma")
         ],
         [
-            KeyboardButton("Panini classiс"),
+            KeyboardButton("Shaurma pishloqli"),
         ],
 
     ],
@@ -367,16 +367,18 @@ gazak = ReplyKeyboardMarkup(
         ],
 
         [
-            KeyboardButton("Fri kartoshkasi"),
-            KeyboardButton("BOX")
+            KeyboardButton("Kartoshka fri katta"),
+            KeyboardButton("Kartoshka fri  standart")
         ],
 
         [
-            KeyboardButton("Strips"),
+            KeyboardButton("Kartoshka fri  mini"),
             KeyboardButton("Po derevenski")
         ],
+
         [
-            KeyboardButton("Naggets"),
+            KeyboardButton("Naggets BOX"),
+            KeyboardButton("Mix Box")
         ],
 
     ],
@@ -462,7 +464,7 @@ ichimliklar = ReplyKeyboardMarkup(
 
         [
             KeyboardButton("Amerikano"),
-            KeyboardButton("Kopuchino")
+            KeyboardButton("Kapuchino")
         ],
 
         [
@@ -492,6 +494,18 @@ sous = ReplyKeyboardMarkup(
         [
             KeyboardButton("Shirin va nordon sous")
         ]
+
+    ],
+    resize_keyboard=True
+)
+
+
+Savat = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton(text='⬅️ Orqaga'),
+            KeyboardButton(text='📥 Savat')
+        ],
 
     ],
     resize_keyboard=True

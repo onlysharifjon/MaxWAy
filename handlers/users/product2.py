@@ -1,4 +1,4 @@
-from keyboards.default.menubuttons import sous
+from keyboards.default.menubuttons import sous, Savat
 from keyboards.inline.inline_buttons import MaxiBoxPopular
 from loader import dp
 from aiogram import types
@@ -32,6 +32,8 @@ siz tanlagan sous :
     """
         else:
             return ''
+    else:
+        return ''
 
 
 def psous_checker2(user_id):
@@ -86,7 +88,7 @@ async def maxi_box_popular(message: types.Message):
     quyma_cola2[message.from_user.id] = ''
     limonli_choy2[message.from_user.id] = ''
 
-    await message.answer("Mahsulot miqdorini tanlang")
+    await message.answer("Mahsulot miqdorini tanlang", reply_markup=Savat)
     await message.answer_photo(photo=open('images/MaxiBoxPopular.jpg', 'rb'), caption="""Maxi BOX Popular 
 Original lavash, kartoshka fri, 0,4 l coca cola, tanlash uchun sous
 
@@ -178,7 +180,7 @@ async def plusmaxiboxpopular2(call: types.CallbackQuery):
                 InlineKeyboardButton(text=f'{limonli_text}', callback_data="limonli_choypopular")
             ],
             [
-                InlineKeyboardButton(text="📥Savatga qo'shish", callback_data="save")
+                InlineKeyboardButton(text="📥Savatga qo'shish", callback_data="save_maxibox_popular")
             ]
         ]
     )
@@ -282,7 +284,7 @@ async def minusmaxiboxpopular(call: types.CallbackQuery):
                     InlineKeyboardButton(text=f'{limonli_text}', callback_data="limonli_choypopular")
                 ],
                 [
-                    InlineKeyboardButton(text="📥Savatga qo'shish", callback_data="save")
+                    InlineKeyboardButton(text="📥Savatga qo'shish", callback_data="save_maxibox_popular")
                 ]
             ]
         )
@@ -410,7 +412,7 @@ kartoshka-fri :
             ],
 
             [
-                InlineKeyboardButton(text="📥Savatga qo'shish", callback_data="save")
+                InlineKeyboardButton(text="📥Savatga qo'shish", callback_data="save_maxibox_popular")
             ],
 
         ]
@@ -492,7 +494,8 @@ async def popularsous1(call: types.CallbackQuery):
                 InlineKeyboardButton(text="⬇️ siz tanlagan sous ⬇️", callback_data="0")
             ],
             [
-                InlineKeyboardButton(text=f"{sarimsoqli_sous2[call.message.chat.id]}",callback_data="sarimsoqli_souspopular"),
+                InlineKeyboardButton(text=f"{sarimsoqli_sous2[call.message.chat.id]}",
+                                     callback_data="sarimsoqli_souspopular"),
                 InlineKeyboardButton(text=f"pishloqli sous", callback_data="pishloqli_souspopular"),
                 InlineKeyboardButton(text=f"ketchup", callback_data="ketchuppopular")
             ],
@@ -507,7 +510,7 @@ async def popularsous1(call: types.CallbackQuery):
             ],
 
             [
-                InlineKeyboardButton(text="📥Savatga qo'shish", callback_data="save")
+                InlineKeyboardButton(text="📥Savatga qo'shish", callback_data="save_maxibox_popular")
             ],
 
         ]
@@ -583,8 +586,10 @@ async def popularsous2(call: types.CallbackQuery):
                 InlineKeyboardButton(text="⬇️ siz tanlagan sous ⬇️", callback_data="0")
             ],
             [
-                InlineKeyboardButton(text=f"{sarimsoqli_sous2[call.message.chat.id]}", callback_data="sarimsoqli_souspopular"),
-                InlineKeyboardButton(text=f"{pishloqli_sous2[call.message.chat.id]}", callback_data="pishloqli_souspopular"),
+                InlineKeyboardButton(text=f"{sarimsoqli_sous2[call.message.chat.id]}",
+                                     callback_data="sarimsoqli_souspopular"),
+                InlineKeyboardButton(text=f"{pishloqli_sous2[call.message.chat.id]}",
+                                     callback_data="pishloqli_souspopular"),
                 InlineKeyboardButton(text=f"ketchup", callback_data="ketchuppopular")
             ],
 
@@ -598,7 +603,7 @@ async def popularsous2(call: types.CallbackQuery):
             ],
 
             [
-                InlineKeyboardButton(text="📥Savatga qo'shish", callback_data="save")
+                InlineKeyboardButton(text="📥Savatga qo'shish", callback_data="save_maxibox_popular")
             ],
 
         ]
@@ -674,8 +679,10 @@ async def popularsous3(call: types.CallbackQuery):
                 InlineKeyboardButton(text="⬇️ siz tanlagan sous ⬇️", callback_data="0")
             ],
             [
-                InlineKeyboardButton(text=f"{sarimsoqli_sous2[call.message.chat.id]}", callback_data="sarimsoqli_souspopular"),
-                InlineKeyboardButton(text=f"{pishloqli_sous2[call.message.chat.id]}", callback_data="pishloqli_souspopular"),
+                InlineKeyboardButton(text=f"{sarimsoqli_sous2[call.message.chat.id]}",
+                                     callback_data="sarimsoqli_souspopular"),
+                InlineKeyboardButton(text=f"{pishloqli_sous2[call.message.chat.id]}",
+                                     callback_data="pishloqli_souspopular"),
                 InlineKeyboardButton(text=f"{ketchup2[call.message.chat.id]}", callback_data="ketchuppopular")
             ],
 
@@ -689,7 +696,7 @@ async def popularsous3(call: types.CallbackQuery):
             ],
 
             [
-                InlineKeyboardButton(text="📥Savatga qo'shish", callback_data="save")
+                InlineKeyboardButton(text="📥Savatga qo'shish", callback_data="save_maxibox_popular")
             ],
 
         ]
@@ -790,7 +797,7 @@ async def cola(call: types.CallbackQuery):
             ],
 
             [
-                InlineKeyboardButton(text="📥Savatga qo'shish", callback_data="save")
+                InlineKeyboardButton(text="📥Savatga qo'shish", callback_data="save_maxibox_popular")
             ],
 
         ]
@@ -891,7 +898,7 @@ async def limonli(call: types.CallbackQuery):
             ],
 
             [
-                InlineKeyboardButton(text="📥Savatga qo'shish", callback_data="save")
+                InlineKeyboardButton(text="📥Savatga qo'shish", callback_data="save_maxibox_popular")
             ],
 
         ]
@@ -917,3 +924,44 @@ Umumiy: {summa} UZS"""
         # message_id=call.message.message_id,
         # chat_id=call.message.chat.id
     )
+
+
+from . import savat2
+
+
+@dp.callback_query_handler(text='save_maxibox_popular')
+async def savat_maxiboxpopular(call: types.CallbackQuery):
+    user_id = call.from_user.id
+    result = ''
+    result2 = ''
+    print('a', ssous_checker2(call.message.chat.id))
+    if ssous_checker2(call.message.chat.id) != '':
+        result = 'Sarimsoq sous'
+
+    elif psous_checker2(call.message.chat.id) != '':
+        result = 'Pishloqli sous'
+
+    elif ketchup_checker2(call.message.chat.id) != '':
+        result = 'Ketchup'
+
+    if quyma_cola_checker2(call.message.chat.id) != '':
+        result2 = 'Quyma cola'
+
+    elif limonli_choy_checker2(call.message.chat.id) != '':
+        result2 = 'Limonli choy'
+
+    await call.message.answer(f'''
+      <b>⬇️Savatga qo`shilgan mahsulotlar⬇️</b>
+      
+      
+<b> Maxi BOX Popular</b> : {son2.get('count')}
+
+<b> kartoshka-fri  : Kichik kartoshka-fri</b>
+
+<b> siz tanlagan sous : {result}</b>  
+
+<b> ichimlik : {result2}</b>  
+''')
+    savat2.savat(result, result2, user_id)
+
+    

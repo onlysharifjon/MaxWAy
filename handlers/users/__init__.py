@@ -9,4 +9,16 @@ from . import product4
 from . import product5
 from . import product6
 from . import product7
-from . import  sendvich
+from . import sendvich
+from . import lavash
+from . import shaurma
+from . import burger
+from . import kebab
+from . import hot_dog
+from . import gazaklar
+from . import tamaddilar
+from . import desertlar
+from . import souslar
+from . import ichimliklar
+from . import cocacola
+from . import savat2

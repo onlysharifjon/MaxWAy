@@ -26,9 +26,9 @@ async def handle_filiallar(message: types.Message):
     await message.answer("Bizning filiallarimiz :", reply_markup=filiallar)
 
 
-@dp.message_handler(text='📋 Mening buyurtmalarim')
-async def handle_buyrtmalar(message: types.Message):
-    await message.answer("Sizda buyurtmalar yo'q :", reply_markup=buyurtmalarim)
+# @dp.message_handler(text='📋 Mening buyurtmalarim')
+# async def handle_buyrtmalar(message: types.Message):
+#     await message.answer("Sizda buyurtmalar yo'q :", reply_markup=buyurtmalarim)
 
 
 @dp.message_handler(text='✍️Izoh qoldirish')
@@ -117,7 +117,7 @@ Mahsulotni tanlang:""", reply_markup=sendvich)
 
 
 @dp.message_handler(text="🌯Lavash")
-async def lavash(message: types.Message):
+async def Lavash(message: types.Message):
     await message.answer("""🌯Lavash
 🌯Lavash
 Mahsulotni tanlang:""", reply_markup=lavash)
